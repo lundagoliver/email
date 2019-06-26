@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+	<Properties>
+		<Property name="log-path">/logs/batchlogs/</Property>
+		<Property name="archive">${log-path}/archive</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern> [%d{yyyy-MM-dd HH:mm:ss.SSS} (%F:%L)] %M - %msg%n
+				</pattern>
+			</PatternLayout>
+		</Console>
+		<File name="netlingo-maintenance-email-notification-file" fileName="${log-path}/netlingo-maintenance-email-notification.log">
+			<PatternLayout>
+				<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS} (%F:%L)] %M - %msg%n</pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+
+	<Loggers>
+		<!--Transghapi-RollingFile" -->
+		<Logger name="com.netlingo.notification.email" level="debug">
+			<AppenderRef ref="netlingo-maintenance-email-notification-file"" />
+		</Logger>
+
+		<!-- HIBERNATE LOGGING -->
+		<!-- Log transaction related activity -->
+<!-- 		<Logger name="org.hibernate.transaction" level="TRACE"> -->
+<!-- 			<AppenderRef ref="Gatherer-core-worker-persistence-RollingFile" /> -->
+<!-- 		</Logger> -->
+<!-- 		<Logger name="org.hibernate.SQL" level="TRACE"> -->
+<!-- 			<AppenderRef ref="Gatherer-core-worker-persistence-RollingFile" /> -->
+<!-- 		</Logger> -->
+<!-- 		<Logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"> -->
+<!-- 			<AppenderRef ref="Gatherer-core-worker-persistence-RollingFile" /> -->
+<!-- 		</Logger> -->
+		<!-- HIBERNATE LOGGING -->
+<!-- 		<logger name="org.hibernate.cache"> -->
+<!-- 			<level value="DEBUG" /> -->
+<!-- 			<AppenderRef ref="Console-Appender" /> -->
+<!-- 		</logger> -->
+<!-- 		<Logger name="org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod" level="TRACE">
+ 			<AppenderRef ref="Gatherer-core-worker-persistence-RollingFile" />
+ 		</Logger>  -->
+		<Root level="info">
+			<AppenderRef ref="Console-Appender" />
+		</Root>
+	</Loggers>
+</Configuration>
