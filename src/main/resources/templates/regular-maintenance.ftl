@@ -331,7 +331,7 @@
         <td>&nbsp;</td>
         <td class="container">
           <div class="content">
-			<div><img src="maintenance-services.jpg"></div>
+			<div><img src="cid:maintenance-services.jpg"></div>
             <!-- START CENTERED WHITE CONTAINER -->
             <table role="presentation" class="main">
 
